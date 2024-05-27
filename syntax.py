@@ -29,6 +29,21 @@ def pos_tag_frequency(article_content):
     
     return counter.most_common()
 
+def pos_seq_freq_chunks(article_content):
+    pos_seq_freq = defaultdict(int)
+
+    for text in article_content:
+        doc = nlp(text)
+        for chunk in doc.noun_chunks:
+            pos_sequence = []
+            for token in chunk:
+                pos_sequence.append(token.pos_)
+            pos_seq_freq[" ".join(pos_sequence)] += 1
+    
+    counter = Counter(pos_seq_freq)
+    
+    return counter.most_common(10)
+
 def main():
     file_path_human = "human.jsonl"
     file_path_ai = "group6.jsonl"
@@ -39,6 +54,14 @@ def main():
     ai_article_content = (get_content(file_path_ai))
     print('\nPOS Tag frequency - ai content:')
     print(pos_tag_frequency(ai_article_content))
+
+    human_pos_seq_freq = pos_seq_freq_chunks(human_article_content)
+    print("\nHuman POS tag sequences:")
+    print(human_pos_seq_freq)
+
+    ai_pos_seq_freq = pos_seq_freq_chunks(ai_article_content)
+    print("\nAI POS tag sequences:")
+    print(ai_pos_seq_freq)
 
 if __name__ == "__main__":
     main()
