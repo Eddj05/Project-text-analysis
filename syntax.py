@@ -45,8 +45,8 @@ def pos_seq_freq_chunks(article_content):
     return counter.most_common(10)
 
 def main():
-    file_path_human = "../data/human.jsonl"
-    file_path_ai = "../data/group6.jsonl"
+    file_path_human = "data/human.jsonl"
+    file_path_ai = "data/group6.jsonl"
     human_article_content = (get_content(file_path_human))
     print('POS Tag frequency - human content:')
     print(pos_tag_frequency(human_article_content))
