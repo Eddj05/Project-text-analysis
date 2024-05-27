@@ -30,9 +30,15 @@ def pos_tag_frequency(article_content):
     return counter.most_common()
 
 def main():
-    file_path = "human.jsonl"
-    article_content = (get_content(file_path))
-    print(pos_tag_frequency(article_content))
+    file_path_human = "human.jsonl"
+    file_path_ai = "group6.jsonl"
+    human_article_content = (get_content(file_path_human))
+    print('POS Tag frequency - human content:')
+    print(pos_tag_frequency(human_article_content))
+
+    ai_article_content = (get_content(file_path_ai))
+    print('\nPOS Tag frequency - ai content:')
+    print(pos_tag_frequency(ai_article_content))
 
 if __name__ == "__main__":
     main()
