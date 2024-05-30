@@ -66,13 +66,42 @@ def display_sentences(article_content):
     all_sentences = []
 
     for doc in article_content:
-        article_sentences = []
         for sent in doc.sents:
-            article_sentences.append(sent)
-        all_sentences.append(article_sentences)
+            tokens = []
+            for token in sent:
+                tokens.append(token)
+            all_sentences.append(tokens)
 
     return all_sentences
 
+
+def begin_POS_tags(all_sentences):
+    begin_pos_dict = defaultdict(int)
+
+    for sentence in all_sentences:
+        first_words = sentence[0:3]
+        first_words_pos_tags = tuple([word.pos_ for word in first_words])
+
+        begin_pos_dict[first_words_pos_tags] += 1
+
+        counter = Counter(begin_pos_dict)
+
+    return counter.most_common(10)
+
+
+def end_POS_tags(all_sentences):
+    end_pos_dict = defaultdict(int)
+
+    for sentence in all_sentences:
+        last_words = sentence[-4:-1]
+        last_words_pos_tags = tuple([word.pos_ for word in last_words])
+
+        end_pos_dict[last_words_pos_tags] += 1
+
+        counter = Counter(end_pos_dict)
+
+    return counter.most_common(10)
+        
 
 def main():
     file_path_human = "../data/human.jsonl"
@@ -102,6 +131,18 @@ def main():
     ai_pos_seq_freq_sents = pos_seq_freq_sents(ai_article_content)
     print("\nMost common AI POS tag sequences in sentences:")
     print(ai_pos_seq_freq_sents)
+
+    print("\nMost common first 3 POS tags in human sentences")
+    print(begin_POS_tags(display_sentences(human_article_content)))
+
+    print("\nMost common first 3 POS tags in AI sentences")
+    print(begin_POS_tags(display_sentences(ai_article_content)))
+
+    print("\nMost common last 3 POS tags in human sentences")
+    print(end_POS_tags(display_sentences(human_article_content)))
+
+    print("\nMost common last 3 POS tags in AI sentences")
+    print(end_POS_tags(display_sentences(ai_article_content)))
 
 
 if __name__ == "__main__":
