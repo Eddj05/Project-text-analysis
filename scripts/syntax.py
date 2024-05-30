@@ -1,11 +1,11 @@
 import json
 import spacy
 from collections import defaultdict, Counter
-import time
 
 
 # Load spaCy model
 nlp = spacy.load("en_core_web_sm")
+
 
 def get_content(file_path):
     article_content = []
@@ -18,6 +18,7 @@ def get_content(file_path):
 
     return article_content
 
+
 def pos_tag_frequency(article_content):
     #pos tag frequency 
     pos_tag_frequency = defaultdict(int)
@@ -29,6 +30,7 @@ def pos_tag_frequency(article_content):
     counter = Counter(pos_tag_frequency)
     
     return counter.most_common()
+
 
 def pos_seq_freq_chunks(article_content):
     pos_seq_freq = defaultdict(int)
@@ -44,6 +46,7 @@ def pos_seq_freq_chunks(article_content):
     
     return counter.most_common(10)
 
+
 def pos_seq_freq_sents(article_content):
     pos_seq_freq_sents = defaultdict(int)
 
@@ -58,15 +61,27 @@ def pos_seq_freq_sents(article_content):
 
     return counter.most_common(10)
 
+
+def display_sentences(article_content):
+    all_sentences = []
+
+    for doc in article_content:
+        article_sentences = []
+        for sent in doc.sents:
+            article_sentences.append(sent)
+        all_sentences.append(article_sentences)
+
+    return all_sentences
+
+
 def main():
-    start_time = time.time()
     file_path_human = "../data/human.jsonl"
     file_path_ai = "../data/group6.jsonl"
     human_article_content = (get_content(file_path_human))
     ai_article_content = (get_content(file_path_ai))
 
-    print('POS Tag frequency - human content:')
     print(pos_tag_frequency(human_article_content))
+    print('POS Tag frequency - human content:')
 
     
     print('\nPOS Tag frequency - ai content:')
@@ -85,11 +100,9 @@ def main():
     print(human_pos_seq_freq_sents)
 
     ai_pos_seq_freq_sents = pos_seq_freq_sents(ai_article_content)
-    print("\nMost commong AI POS tag sequences in sentences:")
+    print("\nMost common AI POS tag sequences in sentences:")
     print(ai_pos_seq_freq_sents)
 
-    end_time = time.time()
-    print(f"total time taken: {end_time - start_time}")
 
 if __name__ == "__main__":
     main()
