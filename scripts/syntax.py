@@ -109,10 +109,9 @@ def main():
     human_article_content = (get_content(file_path_human))
     ai_article_content = (get_content(file_path_ai))
 
-    print(pos_tag_frequency(human_article_content))
     print('POS Tag frequency - human content:')
+    print(pos_tag_frequency(human_article_content))
 
-    
     print('\nPOS Tag frequency - ai content:')
     print(pos_tag_frequency(ai_article_content))
 
