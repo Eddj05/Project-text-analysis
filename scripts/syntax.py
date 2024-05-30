@@ -118,18 +118,15 @@ def sentence_lengths(article_content):
 
 
 def average_sentence_length(article_content):
-    total_words = 0
-    total_sentences = 0
-
+    sentences_lengths = []
+    
     for doc in article_content:
         for sent in doc.sents:
-            total_words += len(sent)
-            total_sentences += 1
+            sentences_lengths.append(len(sent))
 
-    average_sentence_length = total_words / total_sentences
+    average_sentence_length = sum(sentences_lengths) / len(sentences_lengths)
 
     return average_sentence_length
-
 
 def main():
     file_path_human = "../data/human.jsonl"
