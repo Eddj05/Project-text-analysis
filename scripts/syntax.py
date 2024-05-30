@@ -101,7 +101,35 @@ def end_POS_tags(all_sentences):
         counter = Counter(end_pos_dict)
 
     return counter.most_common(10)
-        
+
+
+def sentence_lengths(article_content):
+    sentence_lengths_dict = defaultdict(int)
+
+    for doc in article_content:
+        for sent in doc.sents:
+            sentence_length = len(sent)
+            sentence_lengths_dict[sentence_length] += 1
+    
+    
+    counter = Counter(sentence_lengths_dict)
+
+    return counter.most_common()
+
+
+def average_sentence_length(article_content):
+    total_words = 0
+    total_sentences = 0
+
+    for doc in article_content:
+        for sent in doc.sents:
+            total_words += len(sent)
+            total_sentences += 1
+
+    average_sentence_length = total_words / total_sentences
+
+    return average_sentence_length
+
 
 def main():
     file_path_human = "../data/human.jsonl"
@@ -142,6 +170,14 @@ def main():
 
     print("\nMost common last 3 POS tags in AI sentences")
     print(end_POS_tags(display_sentences(ai_article_content)))
+
+    print("\n Sentence lengths of Humans:")
+    print(sentence_lengths(human_article_content))
+    print(f"average sentence length: {average_sentence_length(human_article_content)}")
+
+    print("\n Sentence lengths of AI:")
+    print(sentence_lengths(ai_article_content))
+    print(f"average sentence length: {average_sentence_length(ai_article_content)}")
 
 
 if __name__ == "__main__":
