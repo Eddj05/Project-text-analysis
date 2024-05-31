@@ -44,7 +44,7 @@ def pos_seq_freq_chunks(article_content):
     
     counter = Counter(pos_seq_freq)
     
-    return counter.most_common(10)
+    return counter.most_common()
 
 
 def pos_seq_freq_sents(article_content):
@@ -59,7 +59,7 @@ def pos_seq_freq_sents(article_content):
     
     counter = Counter(pos_seq_freq_sents)
 
-    return counter.most_common(10)
+    return counter.most_common()
 
 
 def display_sentences(article_content):
@@ -86,7 +86,7 @@ def begin_POS_tags(all_sentences):
 
         counter = Counter(begin_pos_dict)
 
-    return counter.most_common(10)
+    return counter.most_common()
 
 
 def end_POS_tags(all_sentences):
@@ -100,7 +100,7 @@ def end_POS_tags(all_sentences):
 
         counter = Counter(end_pos_dict)
 
-    return counter.most_common(10)
+    return counter.most_common()
 
 
 def sentence_lengths(article_content):
@@ -140,6 +140,22 @@ def dep_tag_frequency(article_content):
     counter = Counter(dep_tag_frequency)
     
     return counter.most_common()
+
+
+def find_percentage(freq_list):
+    total_tokens = 0
+    percentage_dict = {}
+
+    for key, value in freq_list:
+        total_tokens += value
+
+    for key, value in freq_list:
+        percentage_dict[key] = value / total_tokens
+    
+    counter = Counter(percentage_dict)
+
+    return counter.most_common()
+
 
 def main():
     file_path_human = "../data/human.jsonl"
@@ -194,6 +210,18 @@ def main():
 
     print('\nDEP Tag frequency - ai content:')
     print(dep_tag_frequency(ai_article_content))
+
+    print("\n Percentages of POS tag frequency in Human texts:")
+    print(find_percentage(pos_tag_frequency(human_article_content)))
+
+    print("\n percentages of POS tag frequency in AI texts:")
+    print(find_percentage(pos_tag_frequency(ai_article_content)))
+
+    print("\n percentages of DEP tag frequency in human texts:")
+    print(find_percentage(dep_tag_frequency(human_article_content)))
+
+    print("\n percentages of DEP tag frequency in AI texts:")
+    print(find_percentage(dep_tag_frequency(ai_article_content)))
 
 
 if __name__ == "__main__":
