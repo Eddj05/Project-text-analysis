@@ -128,6 +128,19 @@ def average_sentence_length(article_content):
 
     return average_sentence_length
 
+
+def dep_tag_frequency(article_content):
+    #dep tag frequency 
+    dep_tag_frequency = defaultdict(int)
+    
+    for doc in article_content:
+        for token in doc:
+            dep_tag_frequency[token.dep_] += 1
+    
+    counter = Counter(dep_tag_frequency)
+    
+    return counter.most_common()
+
 def main():
     file_path_human = "../data/human.jsonl"
     file_path_ai = "../data/group6.jsonl"
@@ -175,6 +188,12 @@ def main():
     print("\n Sentence lengths of AI:")
     print(sentence_lengths(ai_article_content))
     print(f"average sentence length: {average_sentence_length(ai_article_content)}")
+
+    print('\nDEP Tag frequency - human content:')
+    print(dep_tag_frequency(human_article_content))
+
+    print('\nDEP Tag frequency - ai content:')
+    print(dep_tag_frequency(ai_article_content))
 
 
 if __name__ == "__main__":
