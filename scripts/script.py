@@ -3,9 +3,13 @@ from semantic import *
 from pragmatic import *
 
 def test_data(test_text):
+    # initialize a variable which keeps track of the amount of the score of the text
+    # this score will decide which label the text will be given
     test_score = 0
     
+    # get the average sentence length from syntax.py
     average_sent_length = average_sentence_length(test_text)
+    # decide whether this applies to human made or ai generated text.
     if average_sent_length > 27.55:
         test_score -= 1
     else:
@@ -13,6 +17,7 @@ def test_data(test_text):
 
     print(test_score)
 
+    # if the testscore is positive the label is 'Human', if the testscore is negative the label will be 'AI Generated'
     if test_score < 0:
         label = "AI Generated"
     else:
