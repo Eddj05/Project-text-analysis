@@ -2,10 +2,10 @@ from syntax import *
 from semantic import *
 from pragmatic import *
 
-def test_data(length_test_score, pos_tag_score, beginning_3_pos_score):
+def test_data(score_list):
     # initialize a variable which keeps track of the amount of the score of the text
     # this score will decide which label the text will be given
-    test_score = length_test_score + pos_tag_score + beginning_3_pos_score
+    test_score = sum(score_list)
     
     print(test_score)
 
@@ -32,33 +32,26 @@ def test_average_length(test_text):
 
 
 def test_pos_tags(test_text, human_article_content, ai_article_content):
-    pos_tag_score = 0
-    human_percentages = []
-    ai_percentages = []
-    test_percentages = []
+    test_score = 0
     percentage_pos_tag_human = sorted((find_percentage(pos_tag_frequency(human_article_content))))
     percentage_pos_tag_ai = sorted((find_percentage(pos_tag_frequency(ai_article_content))))
     percentage_pos_tag_test = sorted((find_percentage(pos_tag_frequency(test_text))))
 
-    for key, value in percentage_pos_tag_human:
-        human_percentages.append(value)
-
-    for key, value in percentage_pos_tag_ai:
-        ai_percentages.append(value)
-
-    for key, value in percentage_pos_tag_test:
-        test_percentages.append(value)
-            
-    for i in range(len(test_percentages)):
-        test_percentage_human = abs(test_percentages[i] - human_percentages[i])
-        test_percentage_ai = abs(test_percentages[i] - ai_percentages[i])
-
+    for test_percentage in percentage_pos_tag_test:
+        for human_percentage in percentage_pos_tag_human:
+            if test_percentage[0] == human_percentage[0]:
+                test_percentage_human = abs(test_percentage[1] - human_percentage[1])
+                break
+        for ai_percentage in percentage_pos_tag_ai:
+            if test_percentage[0] == ai_percentage[0]:
+                test_percentage_ai = abs(test_percentage[1] - ai_percentage[1])
+                break
         if test_percentage_human < test_percentage_ai:
-            pos_tag_score += 1
+            test_score += 1
         else:
-            pos_tag_score -= 1
+            test_score -= 1
 
-    return pos_tag_score
+    return test_score 
 
 
 def test_3_beginning_pos(test_text, human_article_content, ai_article_content):
@@ -67,19 +60,91 @@ def test_3_beginning_pos(test_text, human_article_content, ai_article_content):
     percentage_3_pos_beginning_test = sorted(find_percentage(begin_POS_tags(display_sentences(test_text))))
 
     test_score = 0
-    human_percentages = [value for key, value in percentage_3_pos_beginning_human]
-    ai_percentages = [value for key, value in percentage_3_pos_beginning_ai]
-    test_percentages = [value for key, value in percentage_3_pos_beginning_test]
-
-    for i in range(len(test_percentages)):
-        test_percentage_human = abs(test_percentages[i] - human_percentages[i])
-        test_percentage_ai = abs(test_percentages[i] - ai_percentages[i])
+    for test_percentage in percentage_3_pos_beginning_test:
+        for human_percentage in percentage_3_pos_beginning_human:
+            if test_percentage[0] == human_percentage[0]:
+                test_percentage_human = abs(test_percentage[1] - human_percentage[1])
+                break
+        for ai_percentage in percentage_3_pos_beginning_ai:
+            if test_percentage[0] == ai_percentage[0]:
+                test_percentage_ai = abs(test_percentage[1] - ai_percentage[1])
+                break
         if test_percentage_human < test_percentage_ai:
             test_score += 1
         else:
             test_score -= 1
     
     return test_score
+
+
+def test_3_end_pos(test_text, human_article_content, ai_article_content):
+    percentage_3_pos_end_human = sorted(find_percentage(end_POS_tags(display_sentences(human_article_content))))
+    percentage_3_pos_end_ai = sorted(find_percentage(end_POS_tags(display_sentences(ai_article_content))))
+    percentage_3_pos_end_test = sorted(find_percentage(end_POS_tags(display_sentences(test_text))))
+
+    test_score = 0
+    for test_percentage in percentage_3_pos_end_test:
+        for human_percentage in percentage_3_pos_end_human:
+            if test_percentage[0] == human_percentage[0]:
+                test_percentage_human = abs(test_percentage[1] - human_percentage[1])
+                break
+        for ai_percentage in percentage_3_pos_end_ai:
+            if test_percentage[0] == ai_percentage[0]:
+                test_percentage_ai = abs(test_percentage[1] - ai_percentage[1])
+                break
+        if test_percentage_human < test_percentage_ai:
+            test_score += 1
+        else:
+            test_score -= 1
+    
+    return test_score
+
+
+def test_dep_freq(test_text, human_article_content, ai_article_content):
+    percentage_dep_freq_human = sorted((find_percentage(dep_tag_frequency(human_article_content))))
+    percentage_dep_freq_ai = sorted((find_percentage(dep_tag_frequency(ai_article_content))))
+    percentage_dep_freq_test = sorted(find_percentage(dep_tag_frequency(test_text)))
+
+    test_score = 0
+    
+    for test_percentage in percentage_dep_freq_test:
+        for human_percentage in percentage_dep_freq_human:
+            if test_percentage[0] == human_percentage[0]:
+                test_percentage_human = abs(test_percentage[1] - human_percentage[1])
+                break
+        for ai_percentage in percentage_dep_freq_ai:
+            if test_percentage[0] == ai_percentage[0]:
+                test_percentage_ai = abs(test_percentage[1] - ai_percentage[1])
+                break
+        if test_percentage_human < test_percentage_ai:
+            test_score += 1
+        else:
+            test_score -= 1 
+
+    return test_score
+
+
+def test_asent_polarity(test_text, file_path_human, file_path_ai):
+    human_article_content_asent = get_content_asent(file_path_human)
+    ai_article_content_asent = get_content_asent(file_path_ai)
+
+    nlp = spacy.blank('en')
+    nlp.add_pipe('sentencizer')
+    nlp.add_pipe('asent_en_v1')
+
+    test_text_asent = [nlp(test_text)]
+
+    human_asent_polarity = get_asent_polarity(human_article_content_asent)
+    ai_article_polarity = get_asent_polarity(ai_article_content_asent)
+    test_text_polarity = get_asent_polarity(test_text_asent)
+
+    test_human_polarity = abs(test_text_polarity - human_asent_polarity)
+    test_ai_polarity = abs(test_text_polarity - ai_article_polarity)
+
+    if test_human_polarity < test_ai_polarity:
+        return 5
+    else:
+        return -5
 
 
 def main():
@@ -97,22 +162,17 @@ def main():
     human_article_content = get_content(file_path_human)
     ai_article_content = get_content(file_path_ai)
 
-    
-    percentage_3_pos_beginning_human = find_percentage(begin_POS_tags(display_sentences(human_article_content)))
-    percentage_3_pos_beginning_ai = find_percentage(begin_POS_tags(display_sentences(ai_article_content)))
-    
-    percentage_3_pos_end_human = find_percentage(begin_POS_tags(display_sentences(human_article_content)))
-    percentage_3_pos_end_ai = find_percentage(begin_POS_tags(display_sentences(human_article_content)))
-    
-    percentage_dep_freq_human = (find_percentage(dep_tag_frequency(human_article_content)))
-    percentage_dep_freq_ai = (find_percentage(dep_tag_frequency(ai_article_content)))
+    # testing here with the test texts
+    length_test_score = test_average_length(ai_test_text)
+    pos_tag_score = test_pos_tags(ai_test_text, human_article_content, ai_article_content)
+    beginning_3_pos_score = test_3_beginning_pos(ai_test_text, human_article_content, ai_article_content)
+    end_3_pos_score = test_3_end_pos(ai_test_text, human_article_content, ai_article_content)
+    dep_frep_score = test_dep_freq(ai_test_text, human_article_content, ai_article_content)
+    asent_polarity_score = test_asent_polarity(ai_test_text[0].text, file_path_human, file_path_ai)
 
-    length_test_score = test_average_length(human_test_text)
-    pos_tag_score = test_pos_tags(human_test_text, human_article_content, ai_article_content)
-    beginning_3_pos_score = test_3_beginning_pos(human_test_text, human_article_content, ai_article_content)
-
+    test_list_scores = [length_test_score, pos_tag_score, beginning_3_pos_score, end_3_pos_score, dep_frep_score, asent_polarity_score]
     #human_article_content should be replaced with test_data
-    test_data(length_test_score, pos_tag_score, beginning_3_pos_score)
+    test_data(test_list_scores)
 
     
 if __name__ == "__main__":
