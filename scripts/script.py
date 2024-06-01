@@ -147,6 +147,34 @@ def test_asent_polarity(test_text, file_path_human, file_path_ai):
         return -5
 
 
+def test_polarity_blob(test_text, human_article_content, ai_article_content):
+    human_polarity_blob = get_blob_polarity(human_article_content)
+    ai_polarity_blob = get_blob_polarity(ai_article_content)
+    test_text_polarity_blob = get_blob_polarity(test_text)
+
+    test_human_polarity = abs(test_text_polarity_blob - human_polarity_blob)
+    test_ai_polarity = abs(test_text_polarity_blob - ai_polarity_blob)
+
+    if test_human_polarity < test_ai_polarity:
+        return 5
+    else:
+        return -5
+
+
+def test_subjectivity(test_text, human_article_content, ai_article_content):
+    human_subjectivity = get_subjectivity(human_article_content)
+    ai_subjectivity = get_subjectivity(ai_article_content)
+    test_text_subjectivity = get_subjectivity(test_text)
+
+    test_human_subjectivity = abs(test_text_subjectivity - human_subjectivity)
+    test_ai_subjectivity = abs(test_text_subjectivity - ai_subjectivity)
+
+    if test_human_subjectivity < test_ai_subjectivity:
+        return 5
+    else:
+        return -5
+
+
 def main():
     # make a loop to give a label for each independent text in the test data set.
     # Chat-GPT 3.5 generated text
@@ -169,8 +197,10 @@ def main():
     end_3_pos_score = test_3_end_pos(ai_test_text, human_article_content, ai_article_content)
     dep_frep_score = test_dep_freq(ai_test_text, human_article_content, ai_article_content)
     asent_polarity_score = test_asent_polarity(ai_test_text[0].text, file_path_human, file_path_ai)
+    blob_polarity_score = test_polarity_blob(ai_test_text, human_article_content, ai_article_content)
+    subjectivity_score = test_subjectivity(ai_test_text, human_article_content, ai_article_content)
 
-    test_list_scores = [length_test_score, pos_tag_score, beginning_3_pos_score, end_3_pos_score, dep_frep_score, asent_polarity_score]
+    test_list_scores = [length_test_score, pos_tag_score, beginning_3_pos_score, end_3_pos_score, dep_frep_score, asent_polarity_score, blob_polarity_score, subjectivity_score]
     #human_article_content should be replaced with test_data
     test_data(test_list_scores)
 
