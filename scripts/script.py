@@ -2,19 +2,11 @@ from syntax import *
 from semantic import *
 from pragmatic import *
 
-def test_data(test_text):
+def test_data(length_test_score, pos_tag_score):
     # initialize a variable which keeps track of the amount of the score of the text
     # this score will decide which label the text will be given
-    test_score = 0
+    test_score = length_test_score + pos_tag_score
     
-    # get the average sentence length from syntax.py
-    average_sent_length = average_sentence_length(test_text)
-    # decide whether this applies to human made or ai generated text.
-    if average_sent_length > 27.55:
-        test_score -= 1
-    else:
-        test_score += 1
-
     print(test_score)
 
     # if the testscore is positive the label is 'Human', if the testscore is negative the label will be 'AI Generated'
@@ -24,6 +16,19 @@ def test_data(test_text):
         label = "Human"
 
     print(f"label = {label}")
+
+
+def test_average_length(test_text):
+    length_test_score = 0
+    # get the average sentence length from syntax.py
+    average_sent_length = average_sentence_length(test_text)
+    # decide whether this applies to human made or ai generated text.
+    if average_sent_length > 27.55:
+        length_test_score -= 1
+    else:
+        length_test_score += 1
+
+    return length_test_score
 
 
 def test_pos_tags(test_text, human_article_content, ai_article_content):
@@ -53,7 +58,7 @@ def test_pos_tags(test_text, human_article_content, ai_article_content):
         else:
             pos_tag_score -= 1
 
-    print(pos_tag_score)
+    return pos_tag_score
 
 
 def main():
@@ -83,10 +88,11 @@ def main():
     percentage_dep_freq_human = (find_percentage(dep_tag_frequency(human_article_content)))
     percentage_dep_freq_ai = (find_percentage(dep_tag_frequency(ai_article_content)))
 
-    #human_article_content should be replaced with test_data
-    test_data(human_test_text)
+    length_test_score = test_average_length(ai_test_text)
+    pos_tag_score = test_pos_tags(ai_test_text, human_article_content, ai_article_content)
 
-    test_pos_tags(human_test_text, human_article_content, ai_article_content)
+    #human_article_content should be replaced with test_data
+    test_data(length_test_score, pos_tag_score)
 
     
 if __name__ == "__main__":
