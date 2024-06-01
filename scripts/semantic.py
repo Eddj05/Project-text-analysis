@@ -83,8 +83,8 @@ def co_reference_resolution(text):
     return co_references
 
 def main():
-    file_path_human = "human.jsonl"
-    file_path_ai = "group6.jsonl"
+    file_path_human = "../data/human.jsonl"
+    file_path_ai = "../data/group6.jsonl"
     human_article_content = get_content(file_path_human)
     ai_article_content = get_content(file_path_ai)
 
