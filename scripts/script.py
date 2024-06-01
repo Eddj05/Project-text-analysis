@@ -2,10 +2,10 @@ from syntax import *
 from semantic import *
 from pragmatic import *
 
-def test_data(length_test_score, pos_tag_score):
+def test_data(length_test_score, pos_tag_score, beginning_3_pos_score):
     # initialize a variable which keeps track of the amount of the score of the text
     # this score will decide which label the text will be given
-    test_score = length_test_score + pos_tag_score
+    test_score = length_test_score + pos_tag_score + beginning_3_pos_score
     
     print(test_score)
 
@@ -61,6 +61,27 @@ def test_pos_tags(test_text, human_article_content, ai_article_content):
     return pos_tag_score
 
 
+def test_3_beginning_pos(test_text, human_article_content, ai_article_content):
+    percentage_3_pos_beginning_human = sorted(find_percentage(begin_POS_tags(display_sentences(human_article_content))))
+    percentage_3_pos_beginning_ai = sorted(find_percentage(begin_POS_tags(display_sentences(ai_article_content))))
+    percentage_3_pos_beginning_test = sorted(find_percentage(begin_POS_tags(display_sentences(test_text))))
+
+    test_score = 0
+    human_percentages = [value for key, value in percentage_3_pos_beginning_human]
+    ai_percentages = [value for key, value in percentage_3_pos_beginning_ai]
+    test_percentages = [value for key, value in percentage_3_pos_beginning_test]
+
+    for i in range(len(test_percentages)):
+        test_percentage_human = abs(test_percentages[i] - human_percentages[i])
+        test_percentage_ai = abs(test_percentages[i] - ai_percentages[i])
+        if test_percentage_human < test_percentage_ai:
+            test_score += 1
+        else:
+            test_score -= 1
+    
+    return test_score
+
+
 def main():
     # make a loop to give a label for each independent text in the test data set.
     # Chat-GPT 3.5 generated text
@@ -76,9 +97,6 @@ def main():
     human_article_content = get_content(file_path_human)
     ai_article_content = get_content(file_path_ai)
 
-    # loading all the percentages lists
-
-    percentage_pos_tag_ai = (find_percentage(pos_tag_frequency(ai_article_content)))
     
     percentage_3_pos_beginning_human = find_percentage(begin_POS_tags(display_sentences(human_article_content)))
     percentage_3_pos_beginning_ai = find_percentage(begin_POS_tags(display_sentences(ai_article_content)))
@@ -89,11 +107,12 @@ def main():
     percentage_dep_freq_human = (find_percentage(dep_tag_frequency(human_article_content)))
     percentage_dep_freq_ai = (find_percentage(dep_tag_frequency(ai_article_content)))
 
-    length_test_score = test_average_length(ai_test_text)
-    pos_tag_score = test_pos_tags(ai_test_text, human_article_content, ai_article_content)
+    length_test_score = test_average_length(human_test_text)
+    pos_tag_score = test_pos_tags(human_test_text, human_article_content, ai_article_content)
+    beginning_3_pos_score = test_3_beginning_pos(human_test_text, human_article_content, ai_article_content)
 
     #human_article_content should be replaced with test_data
-    test_data(length_test_score, pos_tag_score)
+    test_data(length_test_score, pos_tag_score, beginning_3_pos_score)
 
     
 if __name__ == "__main__":
