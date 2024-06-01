@@ -12,7 +12,7 @@ def test_data(score_list):
     Returns:
     label (str): Human Generated or AI-Generated
 
-    Made By: 
+    Made By: Edwin
     """
     # initialize a variable which keeps track of the amount of the score of the text
     # this score will decide which label the text will be given
@@ -41,7 +41,7 @@ def test_average_length(test_text):
     test_score (int): returning a score based on the test text given whether it is more likely to be 
     AI or Human 
     
-    Made by:
+    Made by: Edwin
     """
     length_test_score = 0
     # get the average sentence length from syntax.py
@@ -72,7 +72,7 @@ def test_pos_tags(test_text, human_article_content, ai_article_content):
     test_score (int): returns a test score whether frequency of pos tags is more likely to be
     AI or human generated
 
-    Made by: 
+    Made by: Edwin
     """
     test_score = 0
     percentage_pos_tag_human = sorted((find_percentage(pos_tag_frequency(human_article_content))))
@@ -111,7 +111,7 @@ def test_3_beginning_pos(test_text, human_article_content, ai_article_content):
     Returns:
     test_score (int): a test score whether it is more likely to be human or AI generated
 
-    Made by: 
+    Made by: Kennie
     """
     percentage_3_pos_beginning_human = sorted(find_percentage(begin_POS_tags(display_sentences(human_article_content))))
     percentage_3_pos_beginning_ai = sorted(find_percentage(begin_POS_tags(display_sentences(ai_article_content))))
@@ -150,7 +150,7 @@ def test_3_end_pos(test_text, human_article_content, ai_article_content):
     test_score (int): returns an integer telling whether the test text is more likely to be
     human or AI generated
 
-    Made by:
+    Made by: Kennie
     """
     percentage_3_pos_end_human = sorted(find_percentage(end_POS_tags(display_sentences(human_article_content))))
     percentage_3_pos_end_ai = sorted(find_percentage(end_POS_tags(display_sentences(ai_article_content))))
@@ -189,7 +189,7 @@ def test_dep_freq(test_text, human_article_content, ai_article_content):
     test_score (int): returns an integer telling whether the test text is more likely to be
     human or AI generated
 
-    Made by:
+    Made by: Kennie
     """
     percentage_dep_freq_human = sorted((find_percentage(dep_tag_frequency(human_article_content))))
     percentage_dep_freq_ai = sorted((find_percentage(dep_tag_frequency(ai_article_content))))
@@ -229,7 +229,7 @@ def test_asent_polarity(test_text, file_path_human, file_path_ai):
     test_score (int): returns an integer telling whether the test text is more likely to be
     human or AI generated
 
-    Made by:
+    Made by: Carlijn
     """
     human_article_content_asent = get_content_asent(file_path_human)
     ai_article_content_asent = get_content_asent(file_path_ai)
@@ -268,7 +268,7 @@ def test_polarity_blob(test_text, human_article_content, ai_article_content):
     test_score (int): returns an integer telling whether the test text is more likely to be
     human or AI generated
 
-    Made by:
+    Made by: Carlijn
     """
     human_polarity_blob = get_blob_polarity(human_article_content)
     ai_polarity_blob = get_blob_polarity(ai_article_content)
@@ -298,7 +298,7 @@ def test_subjectivity(test_text, human_article_content, ai_article_content):
     test_score (int): returns an integer telling whether the test text is more likely to be
     human or AI generated
 
-    Made by:
+    Made by: Anouk
     """
     human_subjectivity = get_subjectivity(human_article_content)
     ai_subjectivity = get_subjectivity(ai_article_content)
