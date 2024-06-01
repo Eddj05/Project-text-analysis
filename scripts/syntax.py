@@ -340,6 +340,9 @@ def main():
     percentage_3_pos_end_ai = find_percentage(begin_POS_tags(display_sentences(human_article_content)))
     print(percentage_3_pos_end_ai[0:10])
 
+    print(average_sentence_length(human_article_content))
+    print(average_sentence_length(ai_article_content))
+
 
 if __name__ == "__main__":
     main()

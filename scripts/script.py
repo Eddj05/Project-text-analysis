@@ -2,6 +2,24 @@ from syntax import *
 from semantic import *
 from pragmatic import *
 
+def test_data(test_text):
+    test_score = 0
+    
+    average_sent_length = average_sentence_length(test_text)
+    if average_sent_length > 27.55:
+        test_score -= 1
+    else:
+        test_score += 1
+
+    print(test_score)
+
+    if test_score < 0:
+        label = "AI Generated"
+    else:
+        label = "Human"
+
+    print(f"label = {label}")
+        
 
 def main():
     # Chat-GPT 3.5 generated text
@@ -29,6 +47,10 @@ def main():
     
     percentage_dep_freq_human = (find_percentage(dep_tag_frequency(human_article_content)))
     percentage_dep_freq_ai = (find_percentage(dep_tag_frequency(ai_article_content)))
+
+    #human_article_content should be replaced with test_data
+    test_data(ai_article_content)
+
     
 if __name__ == "__main__":
     main()
