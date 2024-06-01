@@ -62,6 +62,7 @@ def test_pos_tags(test_text, human_article_content, ai_article_content):
 
 
 def main():
+    # make a loop to give a label for each independent text in the test data set.
     # Chat-GPT 3.5 generated text
     ai_test_text = [nlp("In a quiet village, a legend spoke of an ancient tree with golden leaves holding time's secrets. One evening, curious Elara ventured into the forest, finding a glowing path to a clearing with a crystal pond and a stone pedestal holding an ancient book. Opening the book, Elara discovered stories of her village's past and future. As dawn broke, she realized she had become the keeper of her village's history and destiny. Returning home, she felt a profound connection to generations past and future, understanding the true magic of the tree lay in its timeless stories.")]
     # Human made text from the bbc
