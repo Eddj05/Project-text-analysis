@@ -3,11 +3,14 @@ import spacy
 import nltk
 from nltk.corpus import wordnet as wn
 from nltk.tokenize import word_tokenize
+from fastcoref import spacy_component
 
 nltk.download('wordnet')
 nltk.download('punkt')
 
+# Load SpaCy model and add fastcoref
 nlp = spacy.load("en_core_web_sm")
+nlp.add_pipe("fastcoref")
 
 def get_content(file_path):
     article_content = []
@@ -19,30 +22,27 @@ def get_content(file_path):
                 article_content.append(text)
     return article_content
 
-def wordnet_synsets(article_content):
+def wordnet_synsets(article_content, num_words=20):
+    word_count = 0
     for text in article_content:
         doc = nlp(text)
         for token in doc:
-            synsets = wn.synsets(token.text)
-            for synset in synsets:
-                print(f"Word: {token.text}")
-                print(f"Synset: {synset.name()}")
-                print(f"Definition: {synset.definition()}")
-                print("----")
+            if token.is_alpha:  
+                if word_count < num_words:
+                    synsets = wn.synsets(token.text)
+                    if synsets:
+                        synset = synsets[0]  
+                        print(f"Word: {token.text}")
+                        print(f"Synset: {synset.name()}")
+                        print(f"Definition: {synset.definition()}")
+                        print("----")
+                    word_count += 1
+                else:
+                    break
+        if word_count >= num_words:
+            break
 
 def lesk(context_sentence, ambiguous_word, pos=None):
-    """
-    Returns the most likely sense of an ambiguous word in a given context sentence.
-
-    Parameters:
-    context_sentence (str): The sentence containing the ambiguous word.
-    ambiguous_word (str): The word to disambiguate.
-    pos (str, optional): The part of speech of the ambiguous word. If not provided, all senses will be considered.
-
-    Returns:
-    synset: The most likely sense of the ambiguous word in the given context.
-    """
-    
     tokens = word_tokenize(context_sentence)
     
     if pos is None:
@@ -68,23 +68,41 @@ def lesk(context_sentence, ambiguous_word, pos=None):
 
     return best_synset
 
-def named_entity_recognition(sentence):
-    doc = nlp(sentence)
-    entities = [(entity.text, entity.label_) for entity in doc.ents]
-    return entities
+def named_entity_recognition(article_content, num_entities=20):
+    entity_count = 0
+    for text in article_content:
+        doc = nlp(text)
+        for entity in doc.ents:
+            if entity_count < num_entities:
+                print(f"Entity: {entity.text}")
+                print(f"Label: {entity.label_}")
+                print("----")
+                entity_count += 1
+            else:
+                break
+        if entity_count >= num_entities:
+            break
 
-def co_reference_resolution(text):
-    # Process the text using spaCy
-    doc = nlp(text)
-    # Extract the co-references
-    co_references = []
-    for cluster in doc._.coref_clusters:
-        co_references.append((cluster.main.text, [mention.text for mention in cluster.mentions]))
-    return co_references
+def co_reference_resolution(article_content, num_co_references=20):
+    co_reference_count = 0
+    for text in article_content:
+        doc = nlp(text)
+        if hasattr(doc._, 'coref_clusters'):
+            for cluster in doc._.coref_clusters:
+                if co_reference_count < num_co_references:
+                    mentions = [(text[span[0]:span[1]], span) for span in cluster]
+                    print(f"Main: {mentions[0][0]}")
+                    print(f"Mentions: {[mention[0] for mention in mentions[1:]]}")
+                    print("----")
+                    co_reference_count += 1
+                else:
+                    break
+        if co_reference_count >= num_co_references:
+            break
 
 def main():
-    file_path_human = "../data/human.jsonl"
-    file_path_ai = "../data/group6.jsonl"
+    file_path_human = "human.jsonl"
+    file_path_ai = "group6.jsonl"
     human_article_content = get_content(file_path_human)
     ai_article_content = get_content(file_path_ai)
 
@@ -95,24 +113,16 @@ def main():
     wordnet_synsets(ai_article_content)
 
     print("\nNamed Entity Recognition human texts:")
-    for sentence in human_article_content:
-        entities_human = named_entity_recognition(sentence)
-        print(entities_human)
+    named_entity_recognition(human_article_content)
 
     print("\nNamed Entity Recognition ai texts:")
-    for sentence in ai_article_content:
-        entities_ai = named_entity_recognition(sentence)
-        print(entities_ai)
+    named_entity_recognition(ai_article_content)
 
     print("\nCo-reference resolution human texts:")
-    for text in human_article_content:
-        co_references_human = co_reference_resolution(text)
-        print(co_references_human)
+    co_reference_resolution(human_article_content)
     
     print("\nCo-reference resolution ai texts:")
-    for text in ai_article_content:
-        co_references_ai = co_reference_resolution(text)
-        print(co_references_ai)
+    co_reference_resolution(ai_article_content)
 
 if __name__ == "__main__":
     main()
