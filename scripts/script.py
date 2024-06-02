@@ -30,6 +30,17 @@ def test_data(score_list):
 
 
 def find_percentage_ambiguity(ambiguity_list):
+    """
+    Returns a average percentage of how many of the words are ambiguous in the multiple texts
+
+    Parameters:
+    ambiguity_list (list): a list of dictionaries with a value needing to be integers
+
+    Returns:
+    average_percentage (float): an average of how many of the words are ambiguous in the texts
+
+    Made by: Kennie
+    """
     total_percentages = []
 
     for dictionary in ambiguity_list:
@@ -239,7 +250,7 @@ def test_asent_polarity(test_text, file_path_human, file_path_ai):
     ai_article_content (list): a list with doc variables containing AI generated texts
 
     Returns:
-    test_score (int): returns an integer telling whether the test text is more likely to be
+    testscore (int): returns an integer telling whether the test text is more likely to be
     human or AI generated
 
     Made by: Carlijn
@@ -327,6 +338,21 @@ def test_subjectivity(test_text, human_article_content, ai_article_content):
 
 
 def test_named_entity_recognition(test_text, human_article_content, ai_article_content):
+    """
+    Returns a test score based on the percentage of entity labels comparing that of the test
+    text with the percentage of entity lables of human and AI generated texts
+
+    Parameters:
+    test_text (list): a list with one doc variable containing the test text
+    human_article_content (list): a list with doc variables containing human generated texts
+    ai_article_content (list): a list with doc variables containing AI generated texts
+
+    Returns:
+    test_score (int): returns an integer telling whether the test text is more likely to be
+    human or AI generated
+
+    Made by: Kennie
+    """
     test_score = 0
 
     percentage_human = sorted(find_percentage(named_entity_rec(human_article_content)))
@@ -351,6 +377,22 @@ def test_named_entity_recognition(test_text, human_article_content, ai_article_c
 
 
 def test_ambiguity(test_text, human_article_content, ai_article_content):
+    """
+    Returns a test score based on the percentage of how many of the words are ambiguous
+    and comparing that to the average percentage of ambiguous words of human and AI
+    generated texts
+    
+    Parameters:
+    test_text (list): a list with one doc variable containing the test text
+    human_article_content (list): a list with doc variables containing human generated texts
+    ai_article_content (list): a list with doc variables containing AI generated texts
+
+    Returns:
+    test_score (int): returns an integer telling whether the test text is more likely to be
+    human or AI generated
+
+    Made by: Kennie
+    """
     human_percentage = find_percentage_ambiguity(count_ambiguous_words(human_article_content))
     ai_percentage = find_percentage_ambiguity(count_ambiguous_words(ai_article_content))
     test_text_percentage = find_percentage_ambiguity(count_ambiguous_words(test_text))
