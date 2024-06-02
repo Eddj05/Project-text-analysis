@@ -406,6 +406,7 @@ def test_ambiguity(test_text, human_percentage_ambiguity, ai_percentage_ambiguit
     else:
         return -5
 
+
 def main():
     # make a loop to give a label for each independent text in the test data set.
     file_path_human = "../data/human.jsonl"
@@ -451,7 +452,11 @@ def main():
     ai_percentage_ambiguity = find_percentage_ambiguity(count_ambiguous_words(ai_article_content))
 
     # testing our analysis system for human articles
+    total_test_human_articles = 0 
+    total_human_correct_label = 0
+
     for index, doc in enumerate(test_human_article_content):
+        total_test_human_articles += 1
         test_text = [doc]
         length_test_score = test_average_length(test_text)
         pos_tag_score = test_pos_tags(test_text, percentage_pos_tag_human, percentage_pos_tag_ai)
@@ -466,13 +471,22 @@ def main():
 
         test_list_scores = [length_test_score, pos_tag_score, beginning_3_pos_score, end_3_pos_score, dep_frep_score, asent_polarity_score, blob_polarity_score, subjectivity_score, named_entity_rec_score, ambiguity_score]
         label, score = test_data(test_list_scores)
+        if label == "Human":
+            total_human_correct_label += 1
         print(f"Human text {index}. Label: {label} Score: {score}")
         human_test_analysis.write(f"Human text {index}. Label: {label} Score: {score}\n")
+    
+    accuracy_human = total_human_correct_label/ total_test_human_articles
+    print(f"System's accuracy for labeling human articles: {accuracy_human}")
+    human_test_analysis.write(f"System's accuracy for labeling human articles: {accuracy_human}")
 
     human_test_analysis.close()
 
+    total_test_ai_articles = 0
+    total_ai_correct_label = 0
     # testing our analysis system for ai articles
     for index, doc in enumerate(test_ai_article_content):
+        total_test_ai_articles += 1
         test_text = [doc]
         length_test_score = test_average_length(test_text)
         pos_tag_score = test_pos_tags(test_text, percentage_pos_tag_human, percentage_pos_tag_ai)
@@ -487,11 +501,16 @@ def main():
 
         test_list_scores = [length_test_score, pos_tag_score, beginning_3_pos_score, end_3_pos_score, dep_frep_score, asent_polarity_score, blob_polarity_score, subjectivity_score, named_entity_rec_score, ambiguity_score]
         label, score = test_data(test_list_scores)
+        if label == "AI Generated":
+            total_ai_correct_label += 1
         print(f"AI text {index}. Label: {label} Score: {score}")
         ai_test_analysis.write(f"AI text {index}. Label: {label} Score: {score}\n")
+    
+    accuracy_ai = total_ai_correct_label / total_test_ai_articles
+    print(f"System's accuracy for labeling AI articles: {accuracy_ai}")
+    ai_test_analysis.write(f"System's accuracy for labeling AI articles: {accuracy_ai}")
 
     ai_test_analysis.close()
-
         
 if __name__ == "__main__":
     main()
