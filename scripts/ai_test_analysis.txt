@@ -1,0 +1,436 @@
+AI text 0. Label: AI Generated Score: -14
+AI text 1. Label: AI Generated Score: -43
+AI text 2. Label: AI Generated Score: -7
+AI text 3. Label: AI Generated Score: -25
+AI text 4. Label: AI Generated Score: -31
+AI text 5. Label: AI Generated Score: -14
+AI text 6. Label: AI Generated Score: -11
+AI text 7. Label: Human Score: 12
+AI text 8. Label: AI Generated Score: -3
+AI text 9. Label: AI Generated Score: -24
+AI text 10. Label: AI Generated Score: -14
+AI text 11. Label: AI Generated Score: -23
+AI text 12. Label: AI Generated Score: -32
+AI text 13. Label: AI Generated Score: -9
+AI text 14. Label: AI Generated Score: -2
+AI text 15. Label: AI Generated Score: -33
+AI text 16. Label: AI Generated Score: -30
+AI text 17. Label: AI Generated Score: -29
+AI text 18. Label: AI Generated Score: -27
+AI text 19. Label: AI Generated Score: -32
+AI text 20. Label: AI Generated Score: -21
+AI text 21. Label: AI Generated Score: -29
+AI text 22. Label: AI Generated Score: -12
+AI text 23. Label: AI Generated Score: -26
+AI text 24. Label: AI Generated Score: -12
+AI text 25. Label: AI Generated Score: -24
+AI text 26. Label: AI Generated Score: -4
+AI text 27. Label: AI Generated Score: -25
+AI text 28. Label: AI Generated Score: -15
+AI text 29. Label: AI Generated Score: -10
+AI text 30. Label: AI Generated Score: -4
+AI text 31. Label: AI Generated Score: -40
+AI text 32. Label: AI Generated Score: -26
+AI text 33. Label: AI Generated Score: -14
+AI text 34. Label: AI Generated Score: -1
+AI text 35. Label: AI Generated Score: -13
+AI text 36. Label: AI Generated Score: -9
+AI text 37. Label: AI Generated Score: -22
+AI text 38. Label: AI Generated Score: -17
+AI text 39. Label: Human Score: 0
+AI text 40. Label: AI Generated Score: -33
+AI text 41. Label: AI Generated Score: -12
+AI text 42. Label: AI Generated Score: -35
+AI text 43. Label: Human Score: 0
+AI text 44. Label: AI Generated Score: -1
+AI text 45. Label: AI Generated Score: -31
+AI text 46. Label: AI Generated Score: -17
+AI text 47. Label: AI Generated Score: -6
+AI text 48. Label: Human Score: 2
+AI text 49. Label: Human Score: 3
+AI text 50. Label: AI Generated Score: -15
+AI text 51. Label: AI Generated Score: -3
+AI text 52. Label: AI Generated Score: -17
+AI text 53. Label: AI Generated Score: -23
+AI text 54. Label: Human Score: 5
+AI text 55. Label: AI Generated Score: -17
+AI text 56. Label: AI Generated Score: -36
+AI text 57. Label: AI Generated Score: -14
+AI text 58. Label: AI Generated Score: -14
+AI text 59. Label: AI Generated Score: -25
+AI text 60. Label: AI Generated Score: -37
+AI text 61. Label: AI Generated Score: -23
+AI text 62. Label: AI Generated Score: -17
+AI text 63. Label: AI Generated Score: -10
+AI text 64. Label: AI Generated Score: -13
+AI text 65. Label: AI Generated Score: -45
+AI text 66. Label: AI Generated Score: -17
+AI text 67. Label: AI Generated Score: -39
+AI text 68. Label: AI Generated Score: -17
+AI text 69. Label: AI Generated Score: -27
+AI text 70. Label: AI Generated Score: -31
+AI text 71. Label: AI Generated Score: -10
+AI text 72. Label: AI Generated Score: -18
+AI text 73. Label: AI Generated Score: -1
+AI text 74. Label: AI Generated Score: -6
+AI text 75. Label: Human Score: 11
+AI text 76. Label: AI Generated Score: -28
+AI text 77. Label: Human Score: 23
+AI text 78. Label: AI Generated Score: -6
+AI text 79. Label: AI Generated Score: -22
+AI text 80. Label: AI Generated Score: -42
+AI text 81. Label: AI Generated Score: -31
+AI text 82. Label: AI Generated Score: -25
+AI text 83. Label: AI Generated Score: -21
+AI text 84. Label: AI Generated Score: -18
+AI text 85. Label: Human Score: 5
+AI text 86. Label: AI Generated Score: -31
+AI text 87. Label: AI Generated Score: -21
+AI text 88. Label: Human Score: 11
+AI text 89. Label: AI Generated Score: -6
+AI text 90. Label: AI Generated Score: -40
+AI text 91. Label: AI Generated Score: -2
+AI text 92. Label: Human Score: 6
+AI text 93. Label: AI Generated Score: -34
+AI text 94. Label: AI Generated Score: -13
+AI text 95. Label: AI Generated Score: -1
+AI text 96. Label: AI Generated Score: -23
+AI text 97. Label: AI Generated Score: -19
+AI text 98. Label: AI Generated Score: -9
+AI text 99. Label: AI Generated Score: -5
+AI text 100. Label: AI Generated Score: -18
+AI text 101. Label: AI Generated Score: -14
+AI text 102. Label: AI Generated Score: -30
+AI text 103. Label: Human Score: 3
+AI text 104. Label: AI Generated Score: -35
+AI text 105. Label: AI Generated Score: -10
+AI text 106. Label: AI Generated Score: -12
+AI text 107. Label: AI Generated Score: -18
+AI text 108. Label: AI Generated Score: -33
+AI text 109. Label: Human Score: 8
+AI text 110. Label: AI Generated Score: -48
+AI text 111. Label: AI Generated Score: -12
+AI text 112. Label: AI Generated Score: -6
+AI text 113. Label: AI Generated Score: -14
+AI text 114. Label: AI Generated Score: -44
+AI text 115. Label: AI Generated Score: -13
+AI text 116. Label: AI Generated Score: -13
+AI text 117. Label: Human Score: 8
+AI text 118. Label: AI Generated Score: -32
+AI text 119. Label: AI Generated Score: -26
+AI text 120. Label: AI Generated Score: -26
+AI text 121. Label: AI Generated Score: -7
+AI text 122. Label: AI Generated Score: -66
+AI text 123. Label: AI Generated Score: -33
+AI text 124. Label: Human Score: 2
+AI text 125. Label: AI Generated Score: -36
+AI text 126. Label: AI Generated Score: -35
+AI text 127. Label: AI Generated Score: -46
+AI text 128. Label: AI Generated Score: -45
+AI text 129. Label: AI Generated Score: -34
+AI text 130. Label: AI Generated Score: -21
+AI text 131. Label: AI Generated Score: -8
+AI text 132. Label: AI Generated Score: -9
+AI text 133. Label: AI Generated Score: -42
+AI text 134. Label: AI Generated Score: -22
+AI text 135. Label: AI Generated Score: -4
+AI text 136. Label: AI Generated Score: -25
+AI text 137. Label: Human Score: 0
+AI text 138. Label: AI Generated Score: -6
+AI text 139. Label: Human Score: 18
+AI text 140. Label: Human Score: 15
+AI text 141. Label: AI Generated Score: -4
+AI text 142. Label: AI Generated Score: -34
+AI text 143. Label: AI Generated Score: -10
+AI text 144. Label: AI Generated Score: -8
+AI text 145. Label: AI Generated Score: -43
+AI text 146. Label: AI Generated Score: -20
+AI text 147. Label: AI Generated Score: -4
+AI text 148. Label: Human Score: 1
+AI text 149. Label: Human Score: 1
+AI text 150. Label: AI Generated Score: -18
+AI text 151. Label: AI Generated Score: -7
+AI text 152. Label: AI Generated Score: -35
+AI text 153. Label: AI Generated Score: -25
+AI text 154. Label: AI Generated Score: -14
+AI text 155. Label: AI Generated Score: -19
+AI text 156. Label: Human Score: 24
+AI text 157. Label: AI Generated Score: -9
+AI text 158. Label: AI Generated Score: -30
+AI text 159. Label: AI Generated Score: -9
+AI text 160. Label: AI Generated Score: -21
+AI text 161. Label: AI Generated Score: -20
+AI text 162. Label: AI Generated Score: -21
+AI text 163. Label: AI Generated Score: -40
+AI text 164. Label: AI Generated Score: -52
+AI text 165. Label: AI Generated Score: -9
+AI text 166. Label: AI Generated Score: -29
+AI text 167. Label: AI Generated Score: -30
+AI text 168. Label: AI Generated Score: -24
+AI text 169. Label: AI Generated Score: -23
+AI text 170. Label: AI Generated Score: -11
+AI text 171. Label: AI Generated Score: -24
+AI text 172. Label: AI Generated Score: -21
+AI text 173. Label: AI Generated Score: -5
+AI text 174. Label: AI Generated Score: -14
+AI text 175. Label: AI Generated Score: -27
+AI text 176. Label: AI Generated Score: -19
+AI text 177. Label: AI Generated Score: -29
+AI text 178. Label: AI Generated Score: -20
+AI text 179. Label: AI Generated Score: -2
+AI text 180. Label: AI Generated Score: -12
+AI text 181. Label: AI Generated Score: -50
+AI text 182. Label: AI Generated Score: -5
+AI text 183. Label: AI Generated Score: -22
+AI text 184. Label: AI Generated Score: -19
+AI text 185. Label: AI Generated Score: -11
+AI text 186. Label: AI Generated Score: -13
+AI text 187. Label: Human Score: 18
+AI text 188. Label: AI Generated Score: -35
+AI text 189. Label: AI Generated Score: -22
+AI text 190. Label: AI Generated Score: -8
+AI text 191. Label: AI Generated Score: -6
+AI text 192. Label: AI Generated Score: -45
+AI text 193. Label: AI Generated Score: -3
+AI text 194. Label: AI Generated Score: -23
+AI text 195. Label: AI Generated Score: -16
+AI text 196. Label: AI Generated Score: -19
+AI text 197. Label: AI Generated Score: -29
+AI text 198. Label: AI Generated Score: -18
+AI text 199. Label: AI Generated Score: -43
+AI text 200. Label: AI Generated Score: -16
+AI text 201. Label: AI Generated Score: -22
+AI text 202. Label: AI Generated Score: -14
+AI text 203. Label: AI Generated Score: -11
+AI text 204. Label: AI Generated Score: -35
+AI text 205. Label: AI Generated Score: -12
+AI text 206. Label: Human Score: 3
+AI text 207. Label: AI Generated Score: -7
+AI text 208. Label: Human Score: 4
+AI text 209. Label: AI Generated Score: -12
+AI text 210. Label: Human Score: 11
+AI text 211. Label: AI Generated Score: -8
+AI text 212. Label: AI Generated Score: -28
+AI text 213. Label: AI Generated Score: -8
+AI text 214. Label: AI Generated Score: -25
+AI text 215. Label: AI Generated Score: -7
+AI text 216. Label: AI Generated Score: -2
+AI text 217. Label: Human Score: 1
+AI text 218. Label: AI Generated Score: -18
+AI text 219. Label: AI Generated Score: -3
+AI text 220. Label: AI Generated Score: -23
+AI text 221. Label: AI Generated Score: -14
+AI text 222. Label: AI Generated Score: -12
+AI text 223. Label: Human Score: 18
+AI text 224. Label: AI Generated Score: -37
+AI text 225. Label: AI Generated Score: -27
+AI text 226. Label: AI Generated Score: -19
+AI text 227. Label: AI Generated Score: -3
+AI text 228. Label: AI Generated Score: -29
+AI text 229. Label: AI Generated Score: -10
+AI text 230. Label: AI Generated Score: -21
+AI text 231. Label: Human Score: 18
+AI text 232. Label: AI Generated Score: -48
+AI text 233. Label: AI Generated Score: -34
+AI text 234. Label: Human Score: 6
+AI text 235. Label: AI Generated Score: -24
+AI text 236. Label: AI Generated Score: -19
+AI text 237. Label: AI Generated Score: -33
+AI text 238. Label: AI Generated Score: -28
+AI text 239. Label: AI Generated Score: -16
+AI text 240. Label: AI Generated Score: -23
+AI text 241. Label: AI Generated Score: -37
+AI text 242. Label: AI Generated Score: -41
+AI text 243. Label: AI Generated Score: -28
+AI text 244. Label: AI Generated Score: -13
+AI text 245. Label: AI Generated Score: -2
+AI text 246. Label: AI Generated Score: -7
+AI text 247. Label: AI Generated Score: -51
+AI text 248. Label: AI Generated Score: -12
+AI text 249. Label: AI Generated Score: -25
+AI text 250. Label: AI Generated Score: -16
+AI text 251. Label: AI Generated Score: -27
+AI text 252. Label: AI Generated Score: -26
+AI text 253. Label: AI Generated Score: -17
+AI text 254. Label: Human Score: 3
+AI text 255. Label: AI Generated Score: -12
+AI text 256. Label: AI Generated Score: -41
+AI text 257. Label: AI Generated Score: -16
+AI text 258. Label: AI Generated Score: -19
+AI text 259. Label: Human Score: 16
+AI text 260. Label: AI Generated Score: -24
+AI text 261. Label: AI Generated Score: -36
+AI text 262. Label: AI Generated Score: -6
+AI text 263. Label: AI Generated Score: -20
+AI text 264. Label: AI Generated Score: -6
+AI text 265. Label: AI Generated Score: -44
+AI text 266. Label: AI Generated Score: -14
+AI text 267. Label: Human Score: 1
+AI text 268. Label: Human Score: 0
+AI text 269. Label: AI Generated Score: -14
+AI text 270. Label: Human Score: 0
+AI text 271. Label: AI Generated Score: -24
+AI text 272. Label: AI Generated Score: -10
+AI text 273. Label: AI Generated Score: -12
+AI text 274. Label: AI Generated Score: -28
+AI text 275. Label: AI Generated Score: -21
+AI text 276. Label: Human Score: 11
+AI text 277. Label: AI Generated Score: -20
+AI text 278. Label: AI Generated Score: -41
+AI text 279. Label: AI Generated Score: -22
+AI text 280. Label: AI Generated Score: -6
+AI text 281. Label: AI Generated Score: -10
+AI text 282. Label: AI Generated Score: -26
+AI text 283. Label: AI Generated Score: -25
+AI text 284. Label: AI Generated Score: -26
+AI text 285. Label: AI Generated Score: -19
+AI text 286. Label: AI Generated Score: -27
+AI text 287. Label: AI Generated Score: -8
+AI text 288. Label: AI Generated Score: -8
+AI text 289. Label: AI Generated Score: -41
+AI text 290. Label: AI Generated Score: -1
+AI text 291. Label: AI Generated Score: -6
+AI text 292. Label: AI Generated Score: -41
+AI text 293. Label: AI Generated Score: -32
+AI text 294. Label: AI Generated Score: -17
+AI text 295. Label: AI Generated Score: -2
+AI text 296. Label: AI Generated Score: -9
+AI text 297. Label: AI Generated Score: -11
+AI text 298. Label: AI Generated Score: -23
+AI text 299. Label: AI Generated Score: -3
+AI text 300. Label: AI Generated Score: -42
+AI text 301. Label: AI Generated Score: -19
+AI text 302. Label: Human Score: 0
+AI text 303. Label: AI Generated Score: -15
+AI text 304. Label: AI Generated Score: -2
+AI text 305. Label: AI Generated Score: -19
+AI text 306. Label: AI Generated Score: -38
+AI text 307. Label: Human Score: 6
+AI text 308. Label: AI Generated Score: -28
+AI text 309. Label: AI Generated Score: -22
+AI text 310. Label: AI Generated Score: -12
+AI text 311. Label: Human Score: 2
+AI text 312. Label: AI Generated Score: -41
+AI text 313. Label: AI Generated Score: -41
+AI text 314. Label: AI Generated Score: -10
+AI text 315. Label: AI Generated Score: -14
+AI text 316. Label: AI Generated Score: -22
+AI text 317. Label: AI Generated Score: -28
+AI text 318. Label: AI Generated Score: -33
+AI text 319. Label: AI Generated Score: -11
+AI text 320. Label: AI Generated Score: -15
+AI text 321. Label: AI Generated Score: -19
+AI text 322. Label: AI Generated Score: -9
+AI text 323. Label: AI Generated Score: -25
+AI text 324. Label: AI Generated Score: -9
+AI text 325. Label: AI Generated Score: -25
+AI text 326. Label: AI Generated Score: -39
+AI text 327. Label: AI Generated Score: -19
+AI text 328. Label: AI Generated Score: -19
+AI text 329. Label: AI Generated Score: -38
+AI text 330. Label: AI Generated Score: -28
+AI text 331. Label: AI Generated Score: -18
+AI text 332. Label: AI Generated Score: -3
+AI text 333. Label: AI Generated Score: -7
+AI text 334. Label: AI Generated Score: -24
+AI text 335. Label: AI Generated Score: -44
+AI text 336. Label: AI Generated Score: -29
+AI text 337. Label: AI Generated Score: -6
+AI text 338. Label: AI Generated Score: -17
+AI text 339. Label: AI Generated Score: -11
+AI text 340. Label: AI Generated Score: -2
+AI text 341. Label: AI Generated Score: -12
+AI text 342. Label: Human Score: 4
+AI text 343. Label: AI Generated Score: -9
+AI text 344. Label: AI Generated Score: -31
+AI text 345. Label: AI Generated Score: -1
+AI text 346. Label: AI Generated Score: -4
+AI text 347. Label: AI Generated Score: -18
+AI text 348. Label: AI Generated Score: -1
+AI text 349. Label: AI Generated Score: -15
+AI text 350. Label: AI Generated Score: -29
+AI text 351. Label: AI Generated Score: -5
+AI text 352. Label: Human Score: 11
+AI text 353. Label: AI Generated Score: -14
+AI text 354. Label: AI Generated Score: -40
+AI text 355. Label: AI Generated Score: -36
+AI text 356. Label: AI Generated Score: -30
+AI text 357. Label: AI Generated Score: -35
+AI text 358. Label: AI Generated Score: -25
+AI text 359. Label: AI Generated Score: -5
+AI text 360. Label: AI Generated Score: -10
+AI text 361. Label: AI Generated Score: -36
+AI text 362. Label: AI Generated Score: -16
+AI text 363. Label: AI Generated Score: -16
+AI text 364. Label: AI Generated Score: -11
+AI text 365. Label: AI Generated Score: -12
+AI text 366. Label: AI Generated Score: -26
+AI text 367. Label: AI Generated Score: -12
+AI text 368. Label: AI Generated Score: -16
+AI text 369. Label: AI Generated Score: -20
+AI text 370. Label: AI Generated Score: -34
+AI text 371. Label: AI Generated Score: -21
+AI text 372. Label: AI Generated Score: -10
+AI text 373. Label: AI Generated Score: -17
+AI text 374. Label: Human Score: 10
+AI text 375. Label: AI Generated Score: -6
+AI text 376. Label: AI Generated Score: -42
+AI text 377. Label: AI Generated Score: -29
+AI text 378. Label: AI Generated Score: -13
+AI text 379. Label: AI Generated Score: -32
+AI text 380. Label: AI Generated Score: -20
+AI text 381. Label: AI Generated Score: -22
+AI text 382. Label: AI Generated Score: -4
+AI text 383. Label: Human Score: 7
+AI text 384. Label: AI Generated Score: -13
+AI text 385. Label: AI Generated Score: -5
+AI text 386. Label: AI Generated Score: -15
+AI text 387. Label: AI Generated Score: -12
+AI text 388. Label: AI Generated Score: -5
+AI text 389. Label: AI Generated Score: -39
+AI text 390. Label: AI Generated Score: -34
+AI text 391. Label: AI Generated Score: -28
+AI text 392. Label: AI Generated Score: -30
+AI text 393. Label: AI Generated Score: -29
+AI text 394. Label: AI Generated Score: -46
+AI text 395. Label: AI Generated Score: -17
+AI text 396. Label: AI Generated Score: -59
+AI text 397. Label: AI Generated Score: -44
+AI text 398. Label: Human Score: 1
+AI text 399. Label: AI Generated Score: -25
+AI text 400. Label: AI Generated Score: -28
+AI text 401. Label: AI Generated Score: -12
+AI text 402. Label: AI Generated Score: -12
+AI text 403. Label: Human Score: 5
+AI text 404. Label: AI Generated Score: -2
+AI text 405. Label: AI Generated Score: -25
+AI text 406. Label: AI Generated Score: -10
+AI text 407. Label: AI Generated Score: -29
+AI text 408. Label: AI Generated Score: -17
+AI text 409. Label: AI Generated Score: -31
+AI text 410. Label: AI Generated Score: -20
+AI text 411. Label: AI Generated Score: -39
+AI text 412. Label: AI Generated Score: -36
+AI text 413. Label: Human Score: 31
+AI text 414. Label: AI Generated Score: -15
+AI text 415. Label: AI Generated Score: -1
+AI text 416. Label: AI Generated Score: -31
+AI text 417. Label: AI Generated Score: -10
+AI text 418. Label: AI Generated Score: -16
+AI text 419. Label: AI Generated Score: -36
+AI text 420. Label: AI Generated Score: -12
+AI text 421. Label: AI Generated Score: -29
+AI text 422. Label: Human Score: 0
+AI text 423. Label: AI Generated Score: -25
+AI text 424. Label: AI Generated Score: -52
+AI text 425. Label: Human Score: 11
+AI text 426. Label: Human Score: 8
+AI text 427. Label: AI Generated Score: -20
+AI text 428. Label: AI Generated Score: -18
+AI text 429. Label: AI Generated Score: -2
+AI text 430. Label: AI Generated Score: -20
+AI text 431. Label: AI Generated Score: -16
+AI text 432. Label: AI Generated Score: -32
+AI text 433. Label: AI Generated Score: -26
+AI text 434. Label: AI Generated Score: -21
+System's accuracy for labeling AI articles: 0.8896551724137931
