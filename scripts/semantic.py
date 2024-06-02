@@ -4,6 +4,7 @@ import nltk
 from nltk.corpus import wordnet as wn
 from nltk.tokenize import word_tokenize
 from fastcoref import spacy_component
+from collections import defaultdict, Counter
 
 nltk.download('wordnet')
 nltk.download('punkt')
@@ -68,6 +69,29 @@ def lesk(context_sentence, ambiguous_word, pos=None):
 
     return best_synset
 
+def count_ambiguous_words(article_content):
+    lemma_counts_list = []
+
+    for doc in article_content:
+        lemma_counts = defaultdict(int)
+        for token in doc:
+            if not token.is_stop and not token.is_punct:
+                lemma_counts[token.lemma_] += 1
+        lemma_counts_list.append(lemma_counts)
+
+    return lemma_counts_list
+
+def named_entity_rec(article_content):
+    entity_freq = defaultdict(int)
+
+    for doc in article_content:
+        for entity in doc.ents:
+            entity_freq[entity.label_] += 1
+
+    counter = Counter(entity_freq)
+
+    return counter.most_common()
+
 def named_entity_recognition(article_content, num_entities=20):
     entity_count = 0
     for text in article_content:
@@ -101,8 +125,8 @@ def co_reference_resolution(article_content, num_co_references=20):
             break
 
 def main():
-    file_path_human = "human.jsonl"
-    file_path_ai = "group6.jsonl"
+    file_path_human = "../data/human.jsonl"
+    file_path_ai = "../data/group6.jsonl"
     human_article_content = get_content(file_path_human)
     ai_article_content = get_content(file_path_ai)
 
@@ -123,6 +147,9 @@ def main():
     
     print("\nCo-reference resolution ai texts:")
     co_reference_resolution(ai_article_content)
+
+    print(named_entity_rec(human_article_content))
+    print(named_entity_rec(ai_article_content))
 
 if __name__ == "__main__":
     main()

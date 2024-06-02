@@ -29,6 +29,19 @@ def test_data(score_list):
     print(f"label = {label}")
 
 
+def find_percentage_ambiguity(ambiguity_list):
+    total_percentages = []
+
+    for dictionary in ambiguity_list:
+        total_count = sum([count for count in dictionary.values()])
+        ambiguity_count = sum([count for count in dictionary.values() if count > 1])
+        ambiguity_percentage = ambiguity_count / total_count
+        total_percentages.append(ambiguity_percentage)
+    
+    average_percentage = sum(total_percentages) / len(total_percentages)
+
+    return average_percentage
+
 def test_average_length(test_text):
     """
     Returns a test score given a test text and checking if the
@@ -313,6 +326,44 @@ def test_subjectivity(test_text, human_article_content, ai_article_content):
         return -5
 
 
+def test_named_entity_recognition(test_text, human_article_content, ai_article_content):
+    test_score = 0
+
+    percentage_human = sorted(find_percentage(named_entity_rec(human_article_content)))
+    percentage_ai = sorted(find_percentage(named_entity_rec(ai_article_content)))
+    percentage_test_text = sorted(find_percentage(named_entity_rec(test_text)))
+
+    for test_percentage in percentage_test_text:
+        for human_percentage in percentage_human:
+            if test_percentage[0] == human_percentage[0]:
+                test_human_percentage = abs(test_percentage[1] - human_percentage[1])
+                break
+        for ai_percentage in percentage_ai:
+            if test_percentage[0] == ai_percentage[0]:
+                test_ai_percentage = abs(test_percentage[1] - ai_percentage[1])
+                break
+        if test_human_percentage < test_ai_percentage:
+            test_score += 1
+        else:
+            test_score -= 1
+        
+        return test_score
+
+
+def test_ambiguity(test_text, human_article_content, ai_article_content):
+    human_percentage = find_percentage_ambiguity(count_ambiguous_words(human_article_content))
+    ai_percentage = find_percentage_ambiguity(count_ambiguous_words(ai_article_content))
+    test_text_percentage = find_percentage_ambiguity(count_ambiguous_words(test_text))
+
+    test_human_percentage = abs(test_text_percentage - human_percentage)
+    test_ai_percentage = abs(test_text_percentage - ai_percentage)
+
+    if test_human_percentage < test_ai_percentage:
+        return 5
+    else:
+        return -5
+
+
 def main():
     # make a loop to give a label for each independent text in the test data set.
     # Chat-GPT 3.5 generated text
@@ -336,9 +387,11 @@ def main():
     dep_frep_score = test_dep_freq(human_test_text, human_article_content, ai_article_content)
     asent_polarity_score = test_asent_polarity(human_test_text[0].text, file_path_human, file_path_ai)
     blob_polarity_score = test_polarity_blob(human_test_text, human_article_content, ai_article_content)
-    subjectivity_score = test_subjectivity(ai_test_text, human_article_content, ai_article_content)
+    subjectivity_score = test_subjectivity(human_test_text, human_article_content, ai_article_content)
+    named_entity_rec_score = test_named_entity_recognition(human_test_text, human_article_content, ai_article_content)
+    ambiguity_score = test_ambiguity(human_test_text, human_article_content, ai_article_content)
 
-    test_list_scores = [length_test_score, pos_tag_score, beginning_3_pos_score, end_3_pos_score, dep_frep_score, asent_polarity_score, blob_polarity_score, subjectivity_score]
+    test_list_scores = [length_test_score, pos_tag_score, beginning_3_pos_score, end_3_pos_score, dep_frep_score, asent_polarity_score, blob_polarity_score, subjectivity_score, named_entity_rec_score, ambiguity_score]
     #human_article_content should be replaced with test_data
     test_data(test_list_scores)
 
