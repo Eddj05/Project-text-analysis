@@ -16,7 +16,6 @@ def test_data(score_list):
     """
     # initialize a variable which keeps track of the amount of the score of the text
     # this score will decide which label the text will be given
-    print(score_list)
     valid_scores = [score for score in score_list if score is not None]
     test_score = sum(valid_scores)
 
